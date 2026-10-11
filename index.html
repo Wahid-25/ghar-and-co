@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghar and Co | Furniture & Custom Design</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons for elegant UI elements -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#1f4738',   // Dark green from logo
+                            gold: '#d4af37',    // Gold from logo
+                            brown: '#a87b51',   // Wood brown from logo
+                            bg: '#f9f8f4',      // Off-white/cream background
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f9f8f4;
+            color: #1f4738;
+        }
+        
+        .transition-colors {
+            transition-property: background-color, border-color, color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+
+        .customizer-svg path {
+            transition: fill 0.4s ease;
+        }
+        
+        ::selection {
+            background: #d4af37;
+            color: #1f4738;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-brand-bg text-brand-green flex flex-col min-h-screen">
+
+    <header class="fixed w-full top-0 z-50 bg-brand-bg/95 backdrop-blur-md border-b border-brand-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-3xl font-semibold tracking-tight text-brand-green">
+                        ghar <span class="font-normal text-2xl text-brand-gold italic">&amp;</span> co
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-sm font-medium hover:text-brand-gold transition-colors">Home</a>
+                    <a href="#shop" class="text-sm font-medium hover:text-brand-gold transition-colors">Shop Collection</a>
+                    <a href="#customizer" class="text-sm font-medium hover:text-brand-gold transition-colors">Virtual Customization</a>
+                </nav>
+
+                <!-- Icons (QR & Cart) -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="openQRModal()" class="p-2 hover:text-brand-gold transition-colors relative" title="Share via QR">
+                        <i class="ph ph-qr-code text-2xl"></i>
+                    </button>
+                    <button class="p-2 hover:text-brand-gold transition-colors relative">
+                        <i class="ph ph-shopping-cart text-2xl"></i>
+                        <span class="absolute top-1 right-1 bg-brand-brown text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">2</span>
+                    </button>
+                    <button class="md:hidden p-2 hover:text-brand-gold transition-colors">
+                        <i class="ph ph-list text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="max-w-2xl">
+                    <p class="text-brand-brown font-semibold tracking-wider uppercase text-sm mb-4">Furniture & Custom Design</p>
+                    <h1 class="font-serif text-5xl lg:text-7xl leading-tight mb-6">
+                        Curate your space with <span class="text-brand-gold italic">intention.</span>
+                    </h1>
+                    <p class="text-lg text-brand-green/80 mb-8 max-w-lg leading-relaxed">
+                        Discover our meticulously crafted collections online or immerse yourself in our curated showrooms. Experience bespoke furniture design tailored to your exact aesthetic.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#shop" class="bg-brand-green text-brand-bg px-8 py-3 rounded-sm font-medium hover:bg-brand-green/90 transition-colors shadow-lg shadow-brand-green/20">
+                            Shop Online
+                        </a>
+                        <a href="#customizer" class="border border-brand-green text-brand-green px-8 py-3 rounded-sm font-medium hover:bg-brand-green hover:text-brand-bg transition-colors">
+                            Virtual Customizer
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image Area -->
+                <div class="relative h-[400px] lg:h-[600px] rounded-t-full bg-brand-brown/20 border border-brand-gold/30 p-4">
+                    <div class="w-full h-full rounded-t-full overflow-hidden relative bg-brand-green">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-80 mix-blend-overlay"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-gold rounded-full mix-blend-multiply blur-2xl opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl mb-4 text-brand-green">Signature Collection</h2>
+                <div class="w-24 h-0.5 bg-brand-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Product 1 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] bg-brand-bg overflow-hidden rounded-sm relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Green Velvet Sofa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-brand-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-brand-bg text-brand-green px-6 py-2 rounded-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Quick Add</button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-serif text-xl mb-1 group-hover:text-brand-brown transition-colors">The Emerald Lounger</h3>
+                            <p class="text-sm text-brand-green/70">Forest Green Velvet</p>
+                        </div>
+                        <!-- PRICE IN PKR -->
+                        <p class="font-medium text-brand-gold">PKR 350,000</p>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] bg-brand-bg overflow-hidden rounded-sm relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wood and Leather Chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-brand-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-brand-bg text-brand-green px-6 py-2 rounded-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Quick Add</button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-serif text-xl mb-1 group-hover:text-brand-brown transition-colors">Artisan Accent Chair</h3>
+                            <p class="text-sm text-brand-green/70">Terracotta Leather & Ash</p>
+                        </div>
+                        <!-- PRICE IN PKR -->
+                        <p class="font-medium text-brand-gold">PKR 230,000</p>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] bg-brand-bg overflow-hidden rounded-sm relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Minimalist Table" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-brand-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-brand-bg text-brand-green px-6 py-2 rounded-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Quick Add</button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-serif text-xl mb-1 group-hover:text-brand-brown transition-colors">Geo Dining Table</h3>
+                            <p class="text-sm text-brand-green/70">Walnut & Brass</p>
+                        </div>
+                        <!-- PRICE IN PKR -->
+                        <p class="font-medium text-brand-gold">PKR 570,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="customizer" class="py-20 bg-brand-bg border-y border-brand-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="text-brand-brown font-semibold tracking-wider uppercase text-sm mb-2">Design Your Own</p>
+                <h2 class="font-serif text-4xl mb-4 text-brand-green">Virtual Customization Studio</h2>
+                <p class="text-brand-green/80 max-w-2xl mx-auto">Select a piece and experiment with our signature materials to create a custom look that perfectly fits your space.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 bg-white rounded-lg shadow-xl shadow-brand-green/5 overflow-hidden border border-brand-green/10">
+                
+                <!-- Preview Area -->
+                <div class="lg:col-span-3 bg-brand-bg p-8 flex items-center justify-center relative min-h-[400px]">
+                    <div class="absolute top-4 left-4 flex gap-2">
+                        <span class="text-xs font-semibold uppercase tracking-widest bg-brand-green text-white px-2 py-1 rounded-sm">Live Preview</span>
+                    </div>
+                    
+                    <!-- Stylized SVG Chair for Customization -->
+                    <svg viewBox="0 0 200 200" class="w-full max-w-md h-auto customizer-svg drop-shadow-xl" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Frame/Legs -->
+                        <path id="svg-frame" d="M 40 180 L 50 120 L 150 120 L 160 180 L 150 180 L 142 125 L 58 125 L 50 180 Z" fill="#a87b51" />
+                        <path id="svg-arm-left" d="M 30 130 L 50 80 L 60 80 L 45 130 Z" fill="#a87b51" />
+                        <path id="svg-arm-right" d="M 170 130 L 150 80 L 140 80 L 155 130 Z" fill="#a87b51" />
+                        
+                        <!-- Backrest -->
+                        <path id="svg-back" d="M 60 40 C 60 20, 140 20, 140 40 L 145 110 L 55 110 Z" fill="#1f4738" />
+                        
+                        <!-- Seat Cushion -->
+                        <path id="svg-seat" d="M 45 110 C 40 130, 160 130, 155 110 Z" fill="#1f4738" />
+                        
+                        <!-- Decorative Piping/Accent -->
+                        <path id="svg-accent" d="M 55 110 L 145 110" stroke="#d4af37" stroke-width="2" fill="none" />
+                    </svg>
+                </div>
+
+                <!-- Controls Area -->
+                <div class="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-center">
+                    <h3 class="font-serif text-2xl mb-6 text-brand-green">Configure: The Hexagon Lounge</h3>
+                    
+                    <!-- Fabric Options -->
+                    <div class="mb-8">
+                        <h4 class="text-sm font-semibold uppercase tracking-wider mb-4 flex items-center justify-between text-brand-green">
+                            Fabric Color
+                            <span id="fabric-name" class="text-brand-brown font-normal">Forest Green</span>
+                        </h4>
+                        <div class="flex gap-4">
+                            <!-- Using strict logo colors -->
+                            <button onclick="updateMaterial('fabric', '#1f4738', 'Forest Green')" class="w-10 h-10 rounded-full bg-[#1f4738] ring-2 ring-offset-2 ring-brand-green transition-all" aria-label="Forest Green"></button>
+                            <button onclick="updateMaterial('fabric', '#f9f8f4', 'Cream Linen')" class="w-10 h-10 rounded-full bg-[#f9f8f4] border border-gray-300 ring-2 ring-offset-2 ring-transparent hover:ring-brand-green/30 transition-all" aria-label="Cream Linen"></button>
+                            <button onclick="updateMaterial('fabric', '#d4af37', 'Gold Velvet')" class="w-10 h-10 rounded-full bg-[#d4af37] ring-2 ring-offset-2 ring-transparent hover:ring-brand-green/30 transition-all" aria-label="Gold Velvet"></button>
+                        </div>
+                    </div>
+
+                    <!-- Frame Options -->
+                    <div class="mb-8">
+                        <h4 class="text-sm font-semibold uppercase tracking-wider mb-4 flex items-center justify-between text-brand-green">
+                            Frame Finish
+                            <span id="frame-name" class="text-brand-brown font-normal">Wood Brown</span>
+                        </h4>
+                        <div class="flex gap-4">
+                            <!-- Using strict logo colors -->
+                            <button onclick="updateMaterial('frame', '#a87b51', 'Wood Brown')" class="w-10 h-10 rounded-full bg-[#a87b51] ring-2 ring-offset-2 ring-brand-green transition-all" aria-label="Wood Brown"></button>
+                            <button onclick="updateMaterial('frame', '#1f4738', 'Painted Green')" class="w-10 h-10 rounded-full bg-[#1f4738] ring-2 ring-offset-2 ring-transparent hover:ring-brand-green/30 transition-all" aria-label="Painted Green"></button>
+                            <button onclick="updateMaterial('frame', '#d4af37', 'Brushed Gold')" class="w-10 h-10 rounded-full bg-[#d4af37] ring-2 ring-offset-2 ring-transparent hover:ring-brand-green/30 transition-all" aria-label="Brushed Gold"></button>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto pt-6 border-t border-brand-green/10 flex items-center justify-between">
+                        <!-- PRICE IN PKR -->
+                        <div class="font-serif text-2xl font-semibold text-brand-gold">PKR 390,000</div>
+                        <button class="bg-brand-green text-brand-bg px-8 py-3 rounded-sm font-medium hover:bg-brand-green/90 transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function updateMaterial(part, colorHex, name) {
+                const buttons = event.target.parentElement.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    btn.classList.remove('ring-brand-green');
+                    btn.classList.add('ring-transparent');
+                });
+                event.target.classList.remove('ring-transparent');
+                event.target.classList.add('ring-brand-green');
+
+                if (part === 'fabric') {
+                    document.getElementById('svg-back').setAttribute('fill', colorHex);
+                    document.getElementById('svg-seat').setAttribute('fill', colorHex);
+                    document.getElementById('fabric-name').innerText = name;
+                } else if (part === 'frame') {
+                    document.getElementById('svg-frame').setAttribute('fill', colorHex);
+                    document.getElementById('svg-arm-left').setAttribute('fill', colorHex);
+                    document.getElementById('svg-arm-right').setAttribute('fill', colorHex);
+                    document.getElementById('frame-name').innerText = name;
+                }
+            }
+        </script>
+    </section>
+
+    <footer class="bg-brand-green text-brand-bg pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="lg:col-span-1">
+                    <a href="#" class="font-serif text-3xl font-semibold tracking-tight text-brand-bg mb-6 block">
+                        ghar <span class="font-normal text-2xl text-brand-gold italic">&amp;</span> co
+                    </a>
+                    <p class="text-brand-bg/70 text-sm leading-relaxed mb-6">
+                        Bridging the gap between timeless craftsmanship and modern bespoke design. Furniture tailored to your story.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-brand-bg/70 hover:text-brand-gold transition-colors"><i class="ph ph-instagram-logo text-2xl"></i></a>
+                        <a href="#" class="text-brand-bg/70 hover:text-brand-gold transition-colors"><i class="ph ph-pinterest-logo text-2xl"></i></a>
+                        <a href="#" class="text-brand-bg/70 hover:text-brand-gold transition-colors"><i class="ph ph-facebook-logo text-2xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-brand-gold">Shop</h4>
+                    <ul class="space-y-3 text-sm text-brand-bg/70">
+                        <li><a href="#" class="hover:text-brand-bg transition-colors">Living Room</a></li>
+                        <li><a href="#" class="hover:text-brand-bg transition-colors">Dining Room</a></li>
+                        <li><a href="#" class="hover:text-brand-bg transition-colors">Bedroom</a></li>
+                        <li><a href="#" class="hover:text-brand-bg transition-colors">Custom Designs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Locations -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-brand-gold">Experience</h4>
+                    <ul class="space-y-3 text-sm text-brand-bg/70">
+                        <li><a href="#" class="hover:text-brand-bg transition-colors">Virtual Studio</a></li>
+                        <li><a href="#" class="hover:text-brand-bg transition-colors">Design Consultation</a></li>
+                        <li class="pt-2">
+                            <strong class="block text-brand-bg">Flagship Store</strong>
+                            Design District, Islamabad
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-brand-gold">Stay Inspired</h4>
+                    <p class="text-sm text-brand-bg/70 mb-4">Join our mailing list for interior inspiration and exclusive early access to new collections.</p>
+                    <form class="flex flex-col space-y-3" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your email address" class="bg-brand-bg/10 border border-brand-bg/20 rounded-sm px-4 py-2 text-sm text-brand-bg placeholder-brand-bg/50 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold">
+                        <button type="submit" class="bg-brand-gold text-brand-green font-medium px-4 py-2 rounded-sm text-sm hover:bg-brand-bg transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-brand-bg/10 flex flex-col md:flex-row justify-between items-center text-xs text-brand-bg/50">
+                <p>&copy; 2026 Ghar and Co. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand-bg transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-bg transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="fixed inset-0 z-[100] hidden bg-brand-green/80 backdrop-blur-sm flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="bg-brand-bg p-8 rounded-md shadow-2xl max-w-sm w-full relative transform scale-95 transition-transform duration-300" id="qrModalContent">
+            <button onclick="closeQRModal()" class="absolute top-4 right-4 text-brand-green hover:text-brand-brown transition-colors">
+                <i class="ph ph-x text-2xl"></i>
+            </button>
+            <div class="text-center">
+                <h3 class="font-serif text-2xl mb-2 text-brand-green">Share Ghar & Co</h3>
+                <p class="text-sm text-brand-green/70 mb-6">Scan this code to view our website on your mobile device.</p>
+                <div id="qrcode" class="flex justify-center p-4 bg-white rounded-md border border-brand-gold/30 inline-block mb-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let qrGenerated = false;
+
+        function openQRModal() {
+            const modal = document.getElementById('qrModal');
+            const modalContent = document.getElementById('qrModalContent');
+            
+            modal.classList.remove('hidden');
+            // Trigger reflow
+            void modal.offsetWidth;
+            
+            modal.classList.remove('opacity-0');
+            modalContent.classList.remove('scale-95');
+
+            if (!qrGenerated) {
+                // Ensure QR code script is fully loaded
+                if(typeof QRCode !== 'undefined') {
+                    new QRCode(document.getElementById("qrcode"), {
+                        text: window.location.href, 
+                        width: 200,
+                        height: 200,
+                        colorDark : "#1f4738", // Strict Brand Green
+                        colorLight : "#ffffff",
+                        correctLevel : QRCode.CorrectLevel.H
+                    });
+                    qrGenerated = true;
+                }
+            }
+        }
+
+        function closeQRModal() {
+            const modal = document.getElementById('qrModal');
+            const modalContent = document.getElementById('qrModalContent');
+            
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close modal on outside click
+        document.getElementById('qrModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQRModal();
+            }
+        });
+    </script>
+</body>
+</html>
